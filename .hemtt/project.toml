@@ -1,0 +1,17 @@
+name = "Search & Destroy"
+author = "117Briggy"
+prefix = "snd"
+mainprefix = "117briggy"
+
+[hemtt.launch.default]
+workshop = [
+    "450814997", # CBA_A3
+]
+mission = "snd_dev.Stratis"
+parameters = [
+    "-skipIntro",        # These parameters are passed to the Arma 3 executable
+    "-noSplash",         # They do not need to be added to your list
+    "-showScriptErrors", # You can add additional parameters here
+    "-debug",
+    "-filePatching",
+]
