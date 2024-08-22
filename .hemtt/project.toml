@@ -5,7 +5,9 @@ mainprefix = "117briggy"
 
 [hemtt.launch.default]
 workshop = [
-    "450814997", # CBA_A3
+    "450814997",  # CBA_A3
+    "623475643",  # 3den Enhanced
+    "3023395342", # 3DEN Attributes Fast Load
 ]
 mission = "snd_dev.Stratis"
 parameters = [

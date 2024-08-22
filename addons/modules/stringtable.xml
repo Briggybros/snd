@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project name="snd">
+    <Package name="arsenal">
+        <Key ID="STR_snd_arsenal_SearchAndDestroyMode">
+            <Original>Search &amp; Destroy</Original>
+            <English>Search &amp; Destroy</English>
+        </Key>
+        <Key ID="STR_snd_modules_ModuleSearchAndDestroyInit">
+            <Original>S&amp;D Setup</Original>
+            <English>S&amp;D Setup</English>
+        </Key>
+        <Key ID="STR_snd_modules_ModuleSearchAndDestroyInit_attacking_side_name">
+            <Original>Attacking Side</Original>
+            <English>Attacking Side</English>
+        </Key>
+        <Key ID="STR_snd_modules_ModuleSearchAndDestroyInit_attacking_side_desc">
+            <Original>The side tasked with destroying bases</Original>
+            <English>The side tasked with destroying bases</English>
+        </Key>
+        <Key ID="STR_snd_modules_ModuleSearchAndDestroyInit_defending_side_name">
+            <Original>Defending Side</Original>
+            <English>Defending Side</English>
+        </Key>
+        <Key ID="STR_snd_modules_ModuleSearchAndDestroyInit_defending_side_desc">
+            <Original>The side tasked with defending bases</Original>
+            <English>The side tasked with defending bases</English>
+        </Key>
+        <Key ID="STR_snd_modules_ModuleSearchAndDestroyBase">
+            <Original>S&amp;D Base</Original>
+            <English>S&amp;D Base</English>
+        </Key>
+        <Key ID="STR_snd_modules_ModuleSearchAndDestroyTarget">
+            <Original>S&amp;D Target</Original>
+            <English>S&amp;D Target</English>
+        </Key>
+    </Package>
+</Project>

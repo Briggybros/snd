@@ -1,5 +1,5 @@
 #define MAINPREFIX Briggybros
-#define PREFIX snd
+#define PREFIX SnD
 
 #include "script_version.hpp"
 
