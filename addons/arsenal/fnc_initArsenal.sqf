@@ -8,13 +8,8 @@ if (!hasInterface) exitWith {};
 waitUntil {sleep 1; !isNull player};
 
 _side = (_logic getVariable "Side") call BIS_fnc_sideType;
-if (side player != _side) exitWith {
-	systemChat format ["Player (%1) is not on the right side for the arsenal: %2", side player, _side];
-};
 
 _faction = _logic getVariable ["Faction", "BLU_F"] splitString " ,";
-
-systemChat format ["Populating arsenal for factions: %1", _faction joinString ", "];
 
 _weapons = [];
 _magazines = [];
@@ -46,12 +41,12 @@ _finalBackpacks = [];
 {_finalBackpacks pushBackUnique _x} forEach _backpacks;
 
 {
-	systemChat format ["Creating arsenal for %1", _x];
+	_x setVariable ['access_side', _side];
 	[_x, _finalWeapons,   false, false] call BIS_fnc_addVirtualWeaponCargo;
 	[_x, _finalMagazines, false, false] call BIS_fnc_addVirtualMagazineCargo; 
 	[_x, _finalItems,     false, false] call BIS_fnc_addVirtualItemCargo;
 	[_x, _finalBackpacks, false, false] call BIS_fnc_addVirtualBackpackCargo;
-	["AmmoboxInit", [_x, false, {(_target distance _this) < 3}]] spawn BIS_fnc_arsenal;
+	["AmmoboxInit", [_x, false, {(_target distance _this) < 3 && side _this == _target getVariable "access_side"}]] spawn BIS_fnc_arsenal;
 } forEach synchronizedObjects _logic;
 
 true;
