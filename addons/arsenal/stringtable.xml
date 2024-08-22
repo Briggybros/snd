@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project name="snd">
+    <Package name="arsenal">
+        <Key ID="STR_snd_arsenal_FactionArsenal">
+            <Original>Faction Arsenal</Original>
+            <English>Faction Arsenal</English>
+        </Key>
+        <Key ID="STR_snd_arsenal_FactionArsenal_faction_name">
+            <Original>Faction</Original>
+            <English>Faction</English>
+        </Key>
+        <Key ID="STR_snd_arsenal_FactionArsenal_faction_desc">
+            <Original>Class name for faction to create arsenal for</Original>
+            <English>Class name for faction to create arsenal for</English>
+        </Key>
+        <Key ID="STR_snd_arsenal_FactionArsenal_side_name">
+            <Original>Side</Original>
+            <English>Side</English>
+        </Key>
+        <Key ID="STR_snd_arsenal_FactionArsenal_side_desc">
+            <Original>The side which can access the arsenal</Original>
+            <English>The side which can access the arsenal</English>
+        </Key>
+    </Package>
+</Project>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project name="snd">
     <Package name="arsenal">
-        <Key ID="STR_snd_arsenal_SearchAndDestroyMode">
+        <Key ID="STR_snd_modules_SearchAndDestroyMode">
             <Original>Search &amp; Destroy</Original>
             <English>Search &amp; Destroy</English>
         </Key>
