@@ -15,6 +15,7 @@ _getPhoneticLetter = {
 _name = [_idx] call _getPhoneticLetter;
 _letter = [_idx] call _getLetterUpper;
 _thisBase setVariable ["name", _name];
+_thisBase setVariable ["side", _defendingSide];
 
 // Setup Spawn
 [_defendingSide, getPos _thisBase, _name] call BIS_fnc_addRespawnPosition;
@@ -58,6 +59,6 @@ _thisTrigger setTriggerActivation ["VEHICLE", "PRESENT", true];
 _thisTrigger triggerAttachVehicle [player];
 _thisTrigger setTriggerStatements [
 	"this && !(thisTrigger getVariable 'base' getVariable ['destroyed', false])",
-	"thisTrigger setVariable ['actions', [thisTrigger getVariable 'base', thisTrigger getVariable '_otherBases'] call SnD_fnc_setupBaseTPActions]",
+	"if (thisTrigger getVariable 'base' getVariable 'side' == side player) then {thisTrigger setVariable ['actions', [thisTrigger getVariable 'base', thisTrigger getVariable '_otherBases'] call SnD_fnc_setupBaseTPActions]}",
 	"{ player removeAction _x } forEach (thisTrigger getVariable ['actions', []])"
 ];
