@@ -2,7 +2,7 @@
 params ["_base"];
 _trigger = _base getVariable "_trigger";
 	
-	/** Get an array of objects within a trigger area */
+/** Get an array of objects within a trigger area */
 _getObjectsInTrigger = {
 	params ["_trigger"];
 	_area = triggerArea _trigger;
@@ -26,14 +26,12 @@ _getObjectsInTrigger = {
 	};
 
 	_near = nearestObjects [getPos _trigger, ["All"], _radius, true];
-	_inside = _near select {_x inArea _trigger};
+	_inside = _near select {_x != _trigger && _x inArea _trigger};
 	_inside;
 };
 
-[_base, _trigger, _getObjectsInTrigger] spawn {
-	params ["_base", "_trigger", "_getObjectsInTrigger"];
-
-	{ deleteVehicle _x } forEach [_trigger] call _getObjectsInTrigger;
-	deleteVehicle _trigger;
-	deleteVehicle _base;
-};
+{
+	deleteVehicle _x;
+} forEach ([_trigger] call _getObjectsInTrigger select { _x != _trigger && _x != _base});
+deleteVehicle _trigger;
+deleteVehicle _base;
