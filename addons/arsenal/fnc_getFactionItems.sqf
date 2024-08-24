@@ -65,7 +65,8 @@ _getClasses = {
 
 _units = [];
 {
-	_units = _units + [_x] call _getClasses;
+	_thisFactionUnits = [_x] call _getClasses;
+	_units = _units + _thisFactionUnits;
 } forEach _faction;
 
 _unit_uniforms = [];
