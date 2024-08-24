@@ -1,0 +1,69 @@
+respawn = "BASE"; // Respawn Type -> Respawn at respawn_side markers
+respawnOnStart = 1; // Respawns Player on Mission start
+respawnDelay = 1; // This needs to be > 0 to enable MenuPosition template
+respawnTemplatesWest[] = {"MenuPosition"}; // Respawn type for BLUFOR
+respawnTemplatesEast[] = {"MenuPosition"}; // Respawn type for BLUFOR
+respawnTemplatesGuer[] = {"MenuPosition"}; // Respawn type for BLUFOR
+respawnTemplatesCiv[] = {"MenuPosition"}; // Respawn type for BLUFOR
+respawnTemplatesVirtual[] = {}; // Virtual players, used mainly in Curator (Zeus) missions
+disabledAI = 1; // 0 Fills empty playable slots with AI, 1 They Don't fill the empty slots
+
+class Params {
+	class insurgent_base_count {
+		title    = "Number of insurgent bases";
+		texts[]  = {"1", "2", "3", "4", "5"}; // This must be less than the number of Base triggers
+		values[] = {1, 2, 3, 4, 5};
+		default  = 3;
+	}
+
+	class respawn_delay {
+		title    = "Time to respawn";
+		texts[]  = {"Instant", "30s", "60s", "120s"};
+		values[] = {1, 30, 60, 120};
+		default  = 60;
+	};
+
+	class tp_delay {
+		title    = "Time to teleport";
+		texts[]  = {"Instant", "30s", "60s", "120s"};
+		values[] = {1, 30, 60, 120};
+		default  = 30;
+	};
+
+	class government_ai_multiplier {
+		title    = "Government AI Multiplier";
+		texts[]  = {"None", "1x", "2x", "3x", "4x", "5x", "6x", "7x", "8x", "9x", "10x"};
+		values[] = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+		default  = 2;
+	};
+
+	class insurgent_ai_multiplier {
+		title    = "Insurgent AI Multiplier";
+		texts[]  = {"None", "1x", "2x", "3x", "4x", "5x", "6x", "7x", "8x", "9x", "10x"};
+		values[] = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+		default  = 6;
+	};
+};
+
+class CfgDebriefing
+{
+	class END1 {
+		title = "Mission Completed";
+		description = "You successfully destroyed all the insurgent caches!";
+	};
+
+	class END2 {
+		title = "Mission Failed";
+		description = "Those bastards destoyed our weapons!";
+	};
+
+	class END3 {
+		title = "Mission Completed";
+		description = "You successfully defeneded our weapons!";
+	};
+
+	class END4 {
+		title = "Mission Failed";
+		description = "You didn't find all the weapons in time!";
+	};
+};
