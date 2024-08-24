@@ -6,7 +6,7 @@ class CfgPatches {
 		name = CSTRING(component);
 		author = "117Briggy";
 		url = "https://github.com/Briggybros/snd";
-		requiredVersion = 2; 
+		requiredVersion = 1.82; 
 		requiredAddons[] = {};
 		units[] = {};
 		weapons[] = {};

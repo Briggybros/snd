@@ -7,6 +7,8 @@ class CfgFunctions {
 			PATHTO_FNC(destroyBase);
 			PATHTO_FNC(initTarget);
 			PATHTO_FNC(setupBaseTPActions);
+			PATHTO_FNC(endBasesDestroyed);
+			PATHTO_FNC(endTimeout);
 		};
 	};
 };

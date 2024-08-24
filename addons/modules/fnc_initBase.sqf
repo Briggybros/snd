@@ -59,6 +59,8 @@ _thisTrigger setTriggerActivation ["VEHICLE", "PRESENT", true];
 _thisTrigger triggerAttachVehicle [player];
 _thisTrigger setTriggerStatements [
 	"this && !(thisTrigger getVariable 'base' getVariable ['destroyed', false])",
-	"if (thisTrigger getVariable 'base' getVariable 'side' == side player) then {thisTrigger setVariable ['actions', [thisTrigger getVariable 'base', thisTrigger getVariable '_otherBases'] call SnD_fnc_setupBaseTPActions]}",
+	"if (thisTrigger getVariable 'base' getVariable 'side' == playerSide) then {thisTrigger setVariable ['actions', [thisTrigger getVariable 'base', thisTrigger getVariable '_otherBases'] call SnD_fnc_setupBaseTPActions]}",
 	"{ player removeAction _x } forEach (thisTrigger getVariable ['actions', []])"
 ];
+
+_thisBase setVariable ['ready', true];

@@ -51,6 +51,17 @@ _shuffledBases = _syncedBases call BIS_fnc_arrayShuffle;
 _activeBases   = _shuffledBases select [0, _baseCount];
 _basesToRemove = _shuffledBases select [_baseCount, (count _syncedObjects - 1)];
 
+_taskTrigger = createTrigger ["EmptyDetector", [0,0], true];
+_taskTrigger setVariable ['bases', _activeBases];
+_taskTrigger setVariable ['attacking_side', _attackingSide];
+_taskTrigger setTriggerActivation ["NONE", "PRESENT", false];
+_taskTrigger setTriggerInterval 60;
+_taskTrigger setTriggerStatements [
+	"!(false in ((thisTrigger getVariable ['bases', []]) apply {_x getVariable ['destroyed', false]}))",
+	"[thisTrigger getVariable 'attacking_side'] call SnD_fnc_endBasesDestroyed",
+	""
+];
+
 
 // Configure active bases
 {	
