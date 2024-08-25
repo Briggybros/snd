@@ -17,3 +17,21 @@ parameters = [
     "-debug",
     "-filePatching",
 ]
+
+[hemtt.launch.arsenal]
+workshop = [
+    "450814997",  # CBA_A3
+    "623475643",  # 3den Enhanced
+    "3023395342", # 3DEN Attributes Fast Load
+    "463939057",  # ACE
+    "894678801",  # TFAR
+    "2020940806", # KAT
+]
+mission = "arsenal_test.VR"
+parameters = [
+    "-skipIntro",        # These parameters are passed to the Arma 3 executable
+    "-noSplash",         # They do not need to be added to your list
+    "-showScriptErrors", # You can add additional parameters here
+    "-debug",
+    "-filePatching",
+]

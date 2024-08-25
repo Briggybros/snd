@@ -16,23 +16,30 @@ params [
 
 	_faction = _logic getVariable ["Faction", "BLU_F"] splitString " ,";
 
-	_weapons = [];
-	_magazines = [];
-	_items = [];
-	_backpacks = [];
-
-	([_side, _faction, _weapons, _magazines, _items, _backpacks] call FUNCMAIN(getFactionItems)) params ["_weapons", "_magazines", "_items", "_backpacks"];
+	([_side, _faction] call FUNCMAIN(getFactionItems)) params ["_weapons", "_magazines", "_items", "_backpacks"];
 
 	if (!isnull (configfile >> "CfgPatches" >> "task_force_radio")) then {
-		([_side, _faction, _weapons, _magazines, _items, _backpacks] call FUNCMAIN(getTFARItems)) params ["_weapons", "_magazines", "_items", "_backpacks"];
+		([_side, _faction, _weapons, _magazines, _items, _backpacks] call FUNCMAIN(getTFARItems)) params ["_n_weapons", "_n_magazines", "_n_items", "_n_backpacks"];
+		_weapons = _n_weapons;
+		_magazines = _n_magazines;
+		_items = _n_items;
+		_backpacks = _n_backpacks;
 	};
 
 	if (!isnull (configFile >> "CfgPatches" >> "ace_main")) then {
-		([_side, _faction, _weapons, _magazines, _items, _backpacks] call FUNCMAIN(getAceItems)) params ["_weapons", "_magazines", "_items", "_backpacks"];
+		([_side, _faction, _weapons, _magazines, _items, _backpacks] call FUNCMAIN(getAceItems)) params ["_n_weapons", "_n_magazines", "_n_items", "_n_backpacks"];
+		_weapons = _n_weapons;
+		_magazines = _n_magazines;
+		_items = _n_items;
+		_backpacks = _n_backpacks;
 	};
 
 	if (!isnull (configFile >> "CfgPatches" >> "kat_main")) then {
-		([_side, _faction, _weapons, _magazines, _items, _backpacks] call FUNCMAIN(getKATItems)) params ["_weapons", "_magazines", "_items", "_backpacks"];
+		([_side, _faction, _weapons, _magazines, _items, _backpacks] call FUNCMAIN(getKATItems)) params ["_n_weapons", "_n_magazines", "_n_items", "_n_backpacks"];
+		_weapons = _n_weapons;
+		_magazines = _n_magazines;
+		_items = _n_items;
+		_backpacks = _n_backpacks;
 	};
 
 	// Dedupe lists

@@ -16,6 +16,7 @@ switch (_side) do {
 	default {};
 };
 
+_items = _items - ["ItemRadio"];
 _items = _items + ["TFAR_microdagr"];
 
 [

@@ -69,42 +69,17 @@ _units = [];
 	_units = _units + _thisFactionUnits;
 } forEach _faction;
 
-_unit_uniforms = [];
-_unit_linkeditems = [];
-_unit_weapons = [];
-_unit_magazines = [];
-_unit_backpacks = [];
-_unit_items = [];
 {
-
-	_unit_uniforms pushBackUnique (getText (configFile >> "CfgVehicles" >> _x >> "uniformClass"));
-	_unit_linkeditems pushBackUnique (getArray (configFile >> "CfgVehicles" >> _x >> "linkedItems"));
+	_items = _items + [(getText (configFile >> "CfgVehicles" >> _x >> "uniformClass"))];
+	_items = _items + (getArray (configFile >> "CfgVehicles" >> _x >> "linkedItems"));
 	private _thisUnitWeapons = getArray (configFile >> "CfgVehicles" >> _x >> "weapons");
-	_unit_weapons pushBackUnique _thisUnitWeapons;
+	_weapons = _weapons + _thisUnitWeapons;
 	{
-		_unit_magazines pushBackUnique compatibleMagazines _x;
+		_mags = _mags + (compatibleMagazines _x);
 	} foreach _thisUnitWeapons;
-	_unit_backpacks pushBackUnique (getText (configFile >> "CfgVehicles" >> _x >> "backpack"));
-	_unit_items pushBackUnique (getArray (configfile >> "CfgVehicles" >> _x >> "Items"));
-			
+	_packs = _packs + [(getText (configFile >> "CfgVehicles" >> _x >> "backpack"))];
+	_items = _items + (getArray (configfile >> "CfgVehicles" >> _x >> "Items"));
 } forEach _units;
-
-// Remove nesting
-_unnest = {
-	private _unnested = [];
-	
-	{
-		{
-			_unnested pushBackUnique _x;
-		} foreach _x;
-	} forEach _this;
-
-	_unnested;
-};
-_unit_unit_linkeditems = _unit_linkeditems call _unnest;
-_unit_weapons = _unit_weapons call _unnest;
-_unit_magazines = _unit_magazines call _unnest;
-_unit_items = _unit_items call _unnest;
 
 // Remove bad classes
 _removex = {
@@ -116,21 +91,10 @@ _removex = {
 		
 	_this;
 };
-_unit_uniforms = _unit_uniforms call _removex;
-_unit_linkeditems = _unit_linkeditems call _removex;
-_unit_weapons = _unit_weapons call _removex;
-_unit_magazines = _unit_magazines call _removex;
-_unit_backpacks = _unit_backpacks call _removex;
-_unit_items = _unit_items call _removex;
-
-_weapons = _weapons + _unit_weapons;
-_mags = _mags + _unit_magazines;
-_items = _items + _unit_items + _unit_linkeditems + _unit_uniforms;
-_packs = _packs + _unit_backpacks;
 
 [
-	_weapons,
-	_mags,
-	_items,
-	_packs
+	_weapons call _removex,
+	_mags call _removex,
+	_items call _removex,
+	_packs call _removex
 ];

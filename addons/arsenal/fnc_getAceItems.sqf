@@ -90,7 +90,6 @@ if (!isnull (configfile >> "CfgPatches" >> "ace_nightvision")) then {
 	_items = _items + ["ACE_NVG_Gen1","ACE_NVG_Gen1_Brown","ACE_NVG_Gen1_Green","ACE_NVG_Gen2","ACE_NVG_Gen2_Black","ACE_NVG_Gen2_Brown","ACE_NVG_Gen4","ACE_NVG_Gen4_Black","ACE_NVG_Gen4_Green","ACE_NVG_Wide","ACE_NVG_Wide_Black","ACE_NVG_Wide_Green"];
 };
 
-
 // TODO: MK6 Mortar
 // TODO: MX2A
 // TODO: Optics
