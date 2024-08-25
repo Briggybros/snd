@@ -39,7 +39,7 @@ _defendingSide = (_logic getVariable "DefendingSide") call BIS_fnc_sideType;
 ] call BIS_fnc_setTask;
 
 _syncedObjects = synchronizedObjects _logic;
-_syncedBases = _syncedObjects select {typeof _x == "SnD_modules_ModuleSearchAndDestroyBase"};
+_bases = "SnD_modules_ModuleSearchAndDestroyBase" allObjects 1;
 
 {
 	_trigger = createTrigger ["EmptyDetector", getPos _x, false];
@@ -47,9 +47,9 @@ _syncedBases = _syncedObjects select {typeof _x == "SnD_modules_ModuleSearchAndD
 	
 	_trigger setVariable ["base", _x];
 	_x setVariable ["_trigger", _trigger];
-} forEach _syncedBases;
+} forEach _bases;
 
-_shuffledBases = _syncedBases call BIS_fnc_arrayShuffle;
+_shuffledBases = _bases call BIS_fnc_arrayShuffle;
 _activeBases   = _shuffledBases select [0, _baseCount];
 _basesToRemove = _shuffledBases select [_baseCount, (count _syncedObjects - 1)];
 
