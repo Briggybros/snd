@@ -10,8 +10,8 @@
             <English>Faction</English>
         </Key>
         <Key ID="STR_snd_arsenal_FactionArsenal_faction_desc">
-            <Original>Class name for faction to create arsenal for</Original>
-            <English>Class name for faction to create arsenal for</English>
+            <Original>Class name for faction to create arsenal for, e.g. BLU_F,CIV_F</Original>
+            <English>Class name for faction to create arsenal for, e.g. BLU_F,CIV_F</English>
         </Key>
         <Key ID="STR_snd_arsenal_FactionArsenal_side_name">
             <Original>Side</Original>
