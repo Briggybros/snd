@@ -6,6 +6,8 @@ params [
 
 // TODO: Use module param
 _baseCount = ["insurgent_base_count", 3] call BIS_fnc_getParamValue; 
+_timeLimit = ["time_limit", 3600] call BIS_fnc_getParamValue; 
+
 
 _attackingSide = (_logic getVariable "AttackingSide") call BIS_fnc_sideType;
 _defendingSide = (_logic getVariable "DefendingSide") call BIS_fnc_sideType;
@@ -74,5 +76,20 @@ _taskTrigger setTriggerStatements [
 {
 	[_x] call FUNCMAIN(removeBase);
 } forEach _basesToRemove;
+
+
+[_attackingSide, serverTime, _timeLimit] spawn {
+	params ["_attackingSide", "_startTime", "_timeLimit"];
+	
+	waitUntil {
+		sleep 1;
+		_timeElapsed = serverTime - _startTime;
+		_remaining = _timeLimit - _timeElapsed;
+		
+		_remaining < 0;
+	};
+
+	[_attackingSide] call SnD_fnc_endTimeout;
+};
 
 true;

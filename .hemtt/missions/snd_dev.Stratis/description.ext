@@ -9,6 +9,13 @@ respawnTemplatesVirtual[] = {}; // Virtual players, used mainly in Curator (Zeus
 disabledAI = 1; // 0 Fills empty playable slots with AI, 1 They Don't fill the empty slots
 
 class Params {
+	class time_limit {
+		title    = "Time limit";
+		texts[]  = {"1h", "2h", "3h"};
+		values[] = {3600, 7200, 10800};
+		default  = 7200;
+	}
+
 	class insurgent_base_count {
 		title    = "Number of insurgent bases";
 		texts[]  = {"1", "2", "3", "4", "5"}; // This must be less than the number of Base triggers
@@ -34,14 +41,14 @@ class Params {
 		title    = "Government AI Multiplier";
 		texts[]  = {"None", "1x", "2x", "3x", "4x", "5x", "6x", "7x", "8x", "9x", "10x"};
 		values[] = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
-		default  = 2;
+		default  = 6;
 	};
 
 	class insurgent_ai_multiplier {
 		title    = "Insurgent AI Multiplier";
 		texts[]  = {"None", "1x", "2x", "3x", "4x", "5x", "6x", "7x", "8x", "9x", "10x"};
 		values[] = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
-		default  = 6;
+		default  = 2;
 	};
 };
 
